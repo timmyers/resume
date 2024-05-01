@@ -1,63 +1,144 @@
-\documentclass[a4paper,10pt]{article}
+%-------------------------
+% Resume in Latex
+% Author : Tim Myers
+%------------------------
 
-\usepackage[utf8]{inputenc}
-\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
-\usepackage{url}
+\documentclass[letterpaper,11pt]{article}
 
-\title{Resume}
-\author{Tim Myers}
-\date{} % leave empty for no date
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{fancyhdr}
+
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{helvet}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeItemNoBold}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[3]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} \\
+      \textit{\small#2} & \textit{\small #3} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \begin{document}
 
-\maketitle
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\href{https://tmye.me/}{\Large Tim Myers}} & \\
+  \href{https://tmye.me/}{https://tmye.me} &
+  \href{mailto:timmyers09@gmail.com}{timmyers09@gmail.com} \\
+\end{tabular*}
 
-\section*{Contact Information}
-\begin{itemize}
-    \item Email: timmyers09@example.com
-    \item Phone: +1-234-567-890
-    \item LinkedIn: \url{https://www.linkedin.com/in/yourprofile}
-    \item Address: 123 Main St, Anytown, ST 12345
-\end{itemize}
 
-\section*{Education}
-\begin{itemize}
-    \item \textbf{Degree Name}, Major \\
-    University Name, Graduation Year
-    \item \textbf{Degree Name}, Major \\
-    University Name, Graduation Year
-\end{itemize}
+%-----------EXPERIENCE-----------------
+\section{Experience}
+  \resumeSubHeadingListStart
 
-\section*{Experience}
-\begin{itemize}
-    \item \textbf{Job Title} \\
-    Company Name, Dates \\
-    \begin{itemize}
-        \item Description of responsibilities or achievements.
-        \item Description of responsibilities or achievements.
-    \end{itemize}
-    
-    \item \textbf{Job Title} \\
-    Company Name, Dates \\
-    \begin{itemize}
-        \item Description of responsibilities or achievements.
-        \item Description of responsibilities or achievements.
-    \end{itemize}
-\end{itemize}
+    \resumeSubheading
+      {Consensys (Infura)}
+      {Principal Software Engineer}{March 2019 - Present}
+      \resumeItemListStart
+        \resumeItemNoBold {Custom Kubernetes Operator for managing the lifecycle of blockchain nodes, allowing for rapid addition of new networks and subsequent products.}
+      \resumeItemListEnd
 
-\section*{Skills}
-\begin{itemize}
-    \item Skill 1
-    \item Skill 2
-    \item Skill 3
-\end{itemize}
+    \resumeSubheading
+      {ShapeShift}
+      {Senior SRE / Devops Engineer}{May 2018 - Mar 2019}
+      \resumeItemListStart
+        \resumeItemNoBold {Saved tens of thousands of dollars and hundreds of engineering hours monthly by eliminating waste, and transforming infrastructure and DevOps practices using infrastructure as code, containers, and other modern solutions.}
+      \resumeItemListEnd
 
-\section*{Projects}
-\begin{itemize}
-    \item \textbf{Project Name} \\
-    Brief description of the project and its objectives.
-    \item \textbf{Project Name} \\
-    Brief description of the project and its objectives.
-\end{itemize}
+    \resumeSubheading
+      {Closetbox}
+      {Senior Software Engineer}{Sep 2017 - May 2018}
+      \resumeItemListStart
+        \resumeItemNoBold {Converted monolithic architecture into a serverless event driven one composed of microservices using AWS lambda, resulting in greatly increased scalability and developer velocity.}
+        \resumeItemNoBold {Assumed role of DevOps, moving infrastructure to be managed as code using Terraform, setting up full CI/CD pipelines from scratch using Docker and CircleCI, and helped generally engineer more reliable operations of our applications.}
+      \resumeItemListEnd
 
+    \resumeSubheading
+      {Josh.ai}
+      {Senior Software Architect - Tools and Infrastructure}{Aug 2015 - Sep 2017}
+      \resumeItemListStart
+        \resumeItemNoBold {Designed and implemented a real-time streaming data synchronization protocol to update clients on multiple platforms (iOS, Android, Web) of updates in their home.}
+        \resumeItemNoBold {Implemented device drivers to integrate with tens of different smart devices and ecosystems (Lutron, Crestron, Control4, LIFX, Philips Hue, etc...)}
+        \resumeItemNoBold {Lead the development of cutting edge front-end clients using React and React Native, in a single codebase sharing 95\% of code between Web, Android, and iOS.}
+        \resumeItemNoBold {Managed cloud infrastructure as well as implemented backend services for authorization and user management, user remote access to the home, and other cloud features.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {NetApp}
+      {Firmware Engineer}{Jul 2014 - Jul 2015}
+      \resumeItemListStart
+        \resumeItemNoBold {Helped to implement the firmware for a cloud backup service for storage arrays, providing advanced disaster recovery data restore capability to customers who do not have the luxury of a second site.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of Colorado Boulder}
+      {Master's Degree, Electrical Engineering, GPA: 4.0}{Sept 2013 - May 2014}
+
+    \resumeSubheading
+      {University of Colorado Boulder}
+      {Bachelor's Degree, Electrical and Computer Engineering, GPA: 3.9}{Sept 2009 - May 2013}
+  \resumeSubHeadingListEnd
 \end{document}
