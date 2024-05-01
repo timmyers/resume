@@ -21,7 +21,7 @@ jobs:
       - name: Build deploy folder
         run: |
           mkdir -p deploy
-          cp index.html resume.pdf deploy/
+          cp resume.pdf deploy/index
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
