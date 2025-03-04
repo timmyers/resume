@@ -1,9 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta http-equiv="refresh" content="0; url=https://resume.tmye.me/resume.pdf" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume - Tim Mye</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+      line-height: 1.6;
+    }
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 20px 0;
+      background-color: #0366d6;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+    .button:hover {
+      background-color: #024ea7;
+    }
+    #pdf-container {
+      width: 100%;
+      height: 800px;
+      border: 1px solid #ddd;
+      margin-top: 20px;
+    }
+  </style>
+  <script>
+    // Auto-redirect if that's the preferred behavior
+    window.onload = function() {
+      // Uncomment the next line if you want automatic redirection instead of the viewer
+      // window.location.href = "resume.pdf";
+    }
+  </script>
 </head>
 <body>
-  <p><a href="https://resume.tmye.me/resume.pdf">Redirect</a></p>
+  <h1>Resume</h1>
+  
+  <p>
+    <a href="resume.pdf" class="button" download>Download Resume (PDF)</a>
+    <a href="resume.pdf" class="button" target="_blank">Open in New Tab</a>
+  </p>
+
+  <!-- Embed the PDF directly in the page -->
+  <object id="pdf-container" data="resume.pdf" type="application/pdf">
+    <p>It appears your browser doesn't support embedded PDFs. 
+    <a href="resume.pdf">Click here to download the PDF</a> instead.</p>
+  </object>
 </body>
 </html>
