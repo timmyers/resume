@@ -23,6 +23,7 @@ jobs:
           mkdir -p deploy
           cp resume.pdf deploy/resume.pdf
           cp index.html deploy/index.html
+          cp preview-image.jpg deploy/preview-image.jpg
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
