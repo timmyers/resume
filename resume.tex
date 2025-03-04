@@ -12,8 +12,9 @@
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{verbatim}
 \usepackage{enumitem}
-\usepackage[pdftex]{hyperref}
+\usepackage[pdftex, hidelinks]{hyperref}
 \usepackage{fancyhdr}
+\usepackage{xcolor}
 
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage{helvet}
@@ -37,10 +38,24 @@
 \raggedright
 \setlength{\tabcolsep}{0in}
 
+% Define custom colors
+\definecolor{primary}{RGB}{70, 130, 180} % Steel Blue
+\definecolor{linkcolor}{RGB}{39, 174, 96} % Green color for links
+
 % Sections formatting
 \titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+  \vspace{-4pt}\scshape\raggedright\large\color{primary}
+}{}{0em}{}[\color{primary}\titlerule \vspace{-5pt}]
+
+% Customize hyperlinks
+\hypersetup{
+    colorlinks=true,
+    linkcolor=linkcolor,
+    filecolor=linkcolor,
+    urlcolor=linkcolor,
+    pdftitle={Tim Myers - Resume},
+    pdfauthor={Tim Myers},
+}
 
 %-------------------------
 % Custom commands
@@ -59,7 +74,7 @@
 \newcommand{\resumeSubheading}[3]{
   \vspace{-1pt}\item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textbf{#1} \\
+      \textbf{\color{primary}#1} \\
       \textit{\small#2} & \textit{\small #3} \\
     \end{tabular*}\vspace{-5pt}
 }
@@ -80,9 +95,9 @@
 
 %----------HEADING-----------------
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-  \textbf{\href{https://tmye.me/}{\Large Tim Myers}} & \\
+  \textbf{\href{https://tmye.me/}{\Large \color{primary}Tim Myers}} & \\
   \href{https://tmye.me/}{https://tmye.me} &
-  \href{mailto:timmyers09@gmail.com}{timmyers09@gmail.com} \\
+  \href{mailto:timmyers09@gmail.com}{mailto:timmyers09@gmail.com} \\
 \end{tabular*}
 
 
@@ -91,7 +106,7 @@
   \resumeSubHeadingListStart
     \resumeSubheading
       {Bendy - Mobility focused fitness app, solo project}
-      {\href{https://bendy.fit}{Bendy - Learn to Move}}{Jan 2025 - Present}
+      {\href{https://bendy.fit}{https://bendy.fit}}{Jan 2025 - Present}
 
     \resumeSubheading
       {Consensys (Infura)}
@@ -134,13 +149,6 @@
       \resumeItemListStart
         \resumeItemNoBold {Helped to implement the firmware for a cloud backup service for storage arrays, providing advanced disaster recovery data restore capability to customers who do not have the luxury of a second site.}
       \resumeItemListEnd
-  \resumeSubHeadingListEnd
-
-\section{Projects}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {Bendy - Mobility focused fitness app, solo project}
-      {\href{https://bendy.fit}{Bendy - Learn to Move}}{Jan 2025 - Present}
   \resumeSubHeadingListEnd
 
 \section{Education}
