@@ -15,6 +15,7 @@
 \usepackage[pdftex, hidelinks]{hyperref}
 \usepackage{fancyhdr}
 \usepackage{xcolor}
+\usepackage{needspace}
 
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage{helvet}
@@ -72,12 +73,15 @@
 }
 
 \newcommand{\resumeSubheading}[3]{
-  \vspace{-1pt}\item
+  \needspace{4\baselineskip}\vspace{-1pt}\item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
       \textbf{\color{primary}#1} \\
       \textit{\small#2} & \textit{\small #3} \\
     \end{tabular*}\vspace{-5pt}
 }
+
+% Compact skills line: \resumeSkill{Category}{items}
+\newcommand{\resumeSkill}[2]{\item\small{\textbf{\color{primary}#1:} #2}\vspace{-3pt}}
 
 \newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
 
@@ -85,8 +89,10 @@
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=0pt, topsep=2pt]}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeSkillListStart}{\begin{itemize}[leftmargin=0.15in, label={}, itemsep=1pt, topsep=2pt, parsep=0pt]}
+\newcommand{\resumeSkillListEnd}{\end{itemize}\vspace{-3pt}}
 
 %-------------------------------------------
 %%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -95,72 +101,96 @@
 
 %----------HEADING-----------------
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-  \textbf{\href{https://resume.tmye.me/}{\Large \color{primary}Tim Myers}} & \\
-  \href{https://resume.tmye.me/}{https://resume.tmye.me} &
+  \textbf{\href{https://resume.tmye.me/}{\Large \color{primary}Tim Myers}} &
   \href{mailto:timmyers09@gmail.com}{timmyers09@gmail.com} \\
+  \textit{\small Principal Platform \& Infrastructure Engineer} &
+  \href{https://resume.tmye.me/}{https://resume.tmye.me} \\
 \end{tabular*}
+
+
+%-----------SUMMARY-----------------
+\section{Summary}
+\vspace{3pt}
+\small{
+Principal software \& platform engineer with 10+ years building high-throughput backend services and operating cloud infrastructure at scale. Expert in infrastructure-as-code, Kubernetes, and CI/CD, with a track record of modernizing DevOps and reliability across blockchain, fintech, and connected-device companies. Early, hands-on adopter of agentic AI coding harnesses, embedding automated implementation, review, and QA into the delivery pipeline to ship faster at higher quality.
+}
+\vspace{2pt}
+
+
+%-----------SKILLS-----------------
+\section{Technical Skills}
+  \resumeSkillListStart
+    \resumeSkill{Cloud \& Infrastructure}{AWS, Terraform, Infrastructure as Code, Railway}
+    \resumeSkill{Containers \& Orchestration}{Kubernetes (custom operators), Docker, CI/CD, CircleCI}
+    \resumeSkill{Languages}{Go, TypeScript, JavaScript, Python}
+    \resumeSkill{Backend \& Data}{Microservices, serverless \& event-driven (AWS Lambda), REST APIs, multi-layer caching, Postgres, DynamoDB}
+    \resumeSkill{AI \& Developer Tooling}{Claude Code / agentic coding harnesses, AI-driven code review \& QA, AI-in-the-loop CI/CD}
+  \resumeSkillListEnd
 
 
 %-----------EXPERIENCE-----------------
 \section{Work Experience}
   \resumeSubHeadingListStart
-    \resumeSubheading
-      {Bendy - Mobility-focused fitness app, solo project}
-      {\href{https://bendy.fit}{https://bendy.fit}}{Jan 2025 - Present}
 
     \resumeSubheading
       {Invent Money}
       {Senior Engineer / SRE}{Nov 2025 - May 2026}
       \resumeItemListStart
-        \resumeItemNoBold {Pioneered the use of AI coding harnesses (Claude Code) across both application code and infrastructure, embedding AI-driven workflows for automated code review and automated QA throughout the development lifecycle to accelerate delivery and raise quality.}
-        \resumeItemNoBold {Built an end-to-end issue-implementation pipeline that turns a well-defined Linear issue into shipped code with a single command: writing the implementation, running tests, opening a PR, addressing AI code-review feedback, updating and merging the PR, and performing post-merge acceptance testing.}
-        \resumeItemNoBold {Led the migration of all production infrastructure from Railway to AWS and managed the entire footprint as code, establishing reproducible environments and automated provisioning.}
-        \resumeItemNoBold {Stack: AWS, Terraform, Railway, CI/CD, AI development tooling}
+        \resumeItemNoBold {Pioneered adoption of agentic AI coding harnesses (Claude Code) across application code and infrastructure, embedding automated code review and QA into the development lifecycle to accelerate delivery while raising quality.}
+        \resumeItemNoBold {Built an end-to-end pipeline that turns a well-defined Linear issue into shipped code with a single command --- implementing, testing, opening and merging the PR, resolving AI code-review feedback, and running post-merge acceptance tests.}
+        \resumeItemNoBold {Led the migration of all production infrastructure from Railway to AWS, managing the entire footprint as code with reproducible environments and automated provisioning.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Bendy}
+      {Founder \& Solo Engineer --- mobility-focused fitness app (\href{https://bendy.fit}{bendy.fit})}{Jan 2025 - Present}
+      \resumeItemListStart
+        \resumeItemNoBold {Designing and building a mobility-focused fitness app end-to-end as sole engineer --- product, cross-platform mobile client, backend services, and cloud infrastructure.}
+        \resumeItemNoBold {Own the full stack and delivery pipeline solo, leveraging AI coding harnesses to ship at the velocity of a small team.}
       \resumeItemListEnd
 
     \resumeSubheading
       {ConsenSys (Infura)}
       {Principal Software Engineer}{Mar 2019 - Oct 2024}
       \resumeItemListStart
-        \resumeItemNoBold {Transformed Infura's DevOps process by modernizing workflows, integrating advanced automation tools, and streamlining CI/CD pipelines, resulting in improved operational efficiency and scalability.}
-        \resumeItemNoBold {Built and maintained backend services supporting Infura's products, including high-throughput Ethereum API accelerators, user/account management, billing and usage metering, authentication, API design and versioning, and multi-layer caching.}
-        \resumeItemNoBold {Developed custom Kubernetes operator for managing the lifecycle of blockchain nodes, allowing for rapid addition of new networks and subsequent products.}
-        \resumeItemNoBold {Spearheaded the development of Infura's Decentralized Infrastructure Network (DIN) using ideas learned managing support for multiple networks at Infura.}
-        \resumeItemNoBold {Stack: Terraform, Kubernetes, Golang, DynamoDB, TypeScript, Postgres, AWS}
+        \resumeItemNoBold {Built and operated core backend services behind Infura's products --- high-throughput Ethereum API accelerators, account management, billing and usage metering, authentication, API design and versioning, and multi-layer caching.}
+        \resumeItemNoBold {Designed and shipped a custom Kubernetes operator managing the full lifecycle of blockchain nodes, enabling rapid onboarding of new networks and the products built on top of them.}
+        \resumeItemNoBold {Modernized Infura's DevOps and CI/CD --- integrating automation and streamlining pipelines to improve operational efficiency and scalability.}
+        \resumeItemNoBold {Spearheaded Infura's Decentralized Infrastructure Network (DIN), applying lessons learned operating multi-network support at scale.}
       \resumeItemListEnd
 
     \resumeSubheading
       {ShapeShift}
       {Senior SRE / DevOps Engineer}{May 2018 - Mar 2019}
       \resumeItemListStart
-        \resumeItemNoBold {Saved tens of thousands of dollars and hundreds of engineering hours monthly by eliminating infrastructure waste.}
-        \resumeItemNoBold {Transformed infrastructure and DevOps practices using infrastructure as code, containers, and other modern solutions.}
+        \resumeItemNoBold {Eliminated infrastructure waste, saving tens of thousands of dollars and hundreds of engineering hours every month.}
+        \resumeItemNoBold {Overhauled infrastructure and DevOps practices with infrastructure-as-code, containers, and modern tooling.}
       \resumeItemListEnd
 
     \resumeSubheading
       {Closetbox}
       {Senior Software Engineer}{Sep 2017 - May 2018}
       \resumeItemListStart
-        \resumeItemNoBold {Converted a monolith into serverless, event-driven microservices on AWS Lambda, greatly increasing scalability and developer velocity.}
-        \resumeItemNoBold {Assumed role of DevOps, moving infrastructure to be managed as code using Terraform, setting up full CI/CD pipelines from scratch using Docker and CircleCI, and helped generally engineer more reliable operations of our applications.}
+        \resumeItemNoBold {Converted a monolith into serverless, event-driven microservices on AWS Lambda, significantly improving scalability and developer velocity.}
+        \resumeItemNoBold {Took on the DevOps role --- moving infrastructure to code with Terraform and building full CI/CD pipelines from scratch with Docker and CircleCI.}
       \resumeItemListEnd
 
     \resumeSubheading
       {Josh.ai}
-      {Senior Software Architect - Tools and Infrastructure}{Aug 2015 - Sep 2017}
+      {Senior Software Architect --- Tools and Infrastructure}{Aug 2015 - Sep 2017}
       \resumeItemListStart
-        \resumeItemNoBold {Designed and implemented a real-time streaming data synchronization protocol to update clients on multiple platforms (iOS, Android, Web) of updates in their home.}
-        \resumeItemNoBold {Implemented device drivers to integrate with tens of different smart devices and ecosystems (Lutron, Crestron, Control4, LIFX, Philips Hue, etc.).}
-        \resumeItemNoBold {Led the development of cutting-edge front-end clients using React and React Native, in a single codebase sharing 95\% of code between Web, Android, and iOS.}
-        \resumeItemNoBold {Managed cloud infrastructure as well as implemented backend services for authorization and user management, user remote access to the home, and other cloud features.}
+        \resumeItemNoBold {Designed and implemented a real-time streaming data synchronization protocol keeping iOS, Android, and Web clients in sync with the state of the home.}
+        \resumeItemNoBold {Wrote device drivers integrating dozens of smart-home ecosystems (Lutron, Crestron, Control4, LIFX, Philips Hue, and more).}
+        \resumeItemNoBold {Led front-end development in React and React Native, sharing 95\% of code across Web, Android, and iOS from a single codebase.}
       \resumeItemListEnd
 
     \resumeSubheading
       {NetApp}
       {Firmware Engineer}{Jul 2014 - Jul 2015}
       \resumeItemListStart
-        \resumeItemNoBold {Helped to implement the firmware for a cloud backup service for storage arrays, providing advanced disaster recovery data restore capability to customers who do not have the luxury of a second site.}
+        \resumeItemNoBold {Implemented firmware for a cloud backup service for storage arrays, delivering off-site disaster recovery and data restore to customers without a second datacenter.}
       \resumeItemListEnd
+
   \resumeSubHeadingListEnd
 
 \section{Education}
