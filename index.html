@@ -3,131 +3,326 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resume - Tim Myers</title>
-  
+  <title>Tim Myers — Engineer & Builder</title>
+
   <!-- Primary Meta Tags -->
-  <meta name="title" content="Resume - Tim Myers">
-  <meta name="description" content="Professional resume of Tim Myers - Principal Software Engineer with expertise in DevOps, Kubernetes, and blockchain infrastructure.">
-  
+  <meta name="title" content="Tim Myers — Engineer & Builder">
+  <meta name="description" content="Portfolio of Tim Myers — Principal Platform & Infrastructure Engineer and creator of Bendy, the mobility app that makes stretching feel like a game.">
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://tmye.me/">
-  <meta property="og:title" content="Resume - Tim Myers">
-  <meta property="og:description" content="Professional resume of Tim Myers - Principal Software Engineer with expertise in DevOps, Kubernetes, and blockchain infrastructure.">
+  <meta property="og:title" content="Tim Myers — Engineer & Builder">
+  <meta property="og:description" content="Portfolio of Tim Myers — Principal Platform & Infrastructure Engineer and creator of Bendy, the mobility app that makes stretching feel like a game.">
   <meta property="og:image" content="https://tmye.me/preview-image.jpg">
-  
+
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://tmye.me/">
-  <meta property="twitter:title" content="Resume - Tim Myers">
-  <meta property="twitter:description" content="Professional resume of Tim Myers - Principal Software Engineer with expertise in DevOps, Kubernetes, and blockchain infrastructure.">
+  <meta property="twitter:title" content="Tim Myers — Engineer & Builder">
+  <meta property="twitter:description" content="Portfolio of Tim Myers — Principal Platform & Infrastructure Engineer and creator of Bendy, the mobility app that makes stretching feel like a game.">
   <meta property="twitter:image" content="https://tmye.me/preview-image.jpg">
 
   <style>
+    :root {
+      --ink: #1f2937;
+      --muted: #6b7280;
+      --primary: #2980b9;
+      --primary-dark: #20618c;
+      --teal: #0d9488;
+      --bg: #f9fafb;
+      --card: #ffffff;
+      --radius: 14px;
+      --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+    * { box-sizing: border-box; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       max-width: 1000px;
       margin: 0 auto;
       padding: 20px;
       line-height: 1.6;
-      color: #333;
-      background-color: #f9f9f9;
+      color: var(--ink);
+      background-color: var(--bg);
     }
-    .header {
+    section {
+      background-color: var(--card);
+      padding: 36px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 28px;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
       display: flex;
       align-items: center;
-      justify-content: center;
       flex-wrap: wrap;
-      margin-bottom: 30px;
-      gap: 30px;
+      gap: 32px;
     }
     .profile-image {
-      width: 180px;
-      height: 180px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
       object-fit: cover;
       border: 4px solid #fff;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+      flex-shrink: 0;
     }
-    .header-text {
-      text-align: center;
-    }
+    .hero-text { flex: 1; min-width: min(260px, 100%); }
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
+      font-size: 2.4rem;
+      margin: 0 0 4px;
       color: #2c3e50;
+      letter-spacing: -0.5px;
     }
     .subtitle {
-      font-size: 1.2rem;
-      color: #7f8c8d;
-      margin-bottom: 20px;
+      font-size: 1.15rem;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .bio {
+      font-size: 1rem;
+      color: var(--ink);
+      margin: 0 0 18px;
+      max-width: 60ch;
     }
     .buttons {
       display: flex;
-      justify-content: center;
-      gap: 15px;
+      gap: 12px;
       flex-wrap: wrap;
-      margin-bottom: 30px;
     }
     .button {
       display: inline-block;
-      padding: 12px 24px;
-      background-color: #2980b9;
+      padding: 11px 22px;
+      background-color: var(--primary);
       color: white;
       text-decoration: none;
-      border-radius: 6px;
+      border-radius: 8px;
       font-weight: 500;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: all 0.25s ease;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
     .button:hover {
       background-color: #3498db;
       transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+    .button.secondary {
+      background-color: transparent;
+      color: var(--primary-dark);
+      border: 1.5px solid var(--primary);
+      box-shadow: none;
+    }
+    .button.secondary:hover {
+      background-color: rgba(41, 128, 185, 0.07);
+    }
+    .button.teal { background-color: var(--teal); }
+    .button.teal:hover { background-color: #0fb3a5; }
+
+    /* ---------- Section headings ---------- */
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--teal);
+      margin: 0 0 6px;
+    }
+    h2 {
+      font-size: 1.7rem;
+      color: #2c3e50;
+      margin: 0 0 6px;
+      letter-spacing: -0.3px;
+    }
+
+    /* ---------- Bendy feature ---------- */
+    .project {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+    .project-info { flex: 1.3; min-width: min(300px, 100%); }
+    .project-title-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 4px;
+    }
+    .app-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
+    }
+    .tagline {
+      font-size: 1.05rem;
+      color: var(--muted);
+      font-style: italic;
+      margin: 6px 0 16px;
+    }
+    .project-info p { margin: 0 0 14px; }
+    .feature-list {
+      padding-left: 1.2em;
+      margin: 0 0 18px;
+    }
+    .feature-list li { margin-bottom: 6px; }
+    .tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+    .chip {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--primary-dark);
+      background: rgba(41, 128, 185, 0.09);
+      border: 1px solid rgba(41, 128, 185, 0.25);
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+    .screens {
+      flex: 1;
+      min-width: min(280px, 100%);
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+    }
+    .screens img {
+      width: calc(50% - 9px);
+      max-width: 220px;
+      height: auto;
+      border-radius: 22px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    }
+    .screens img:last-child {
+      margin-top: 36px;
+    }
+
+    /* ---------- Resume ---------- */
+    .resume-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 20px;
     }
     #pdf-container {
       width: 100%;
       height: 800px;
       border: none;
       border-radius: 8px;
-      margin-top: 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      box-shadow: var(--shadow);
       background-color: white;
     }
-    .container {
-      background-color: white;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      padding-bottom: 20px;
+    }
+    footer a { color: var(--primary-dark); }
+
+    @media (max-width: 640px) {
+      section { padding: 24px; }
+      .hero { justify-content: center; text-align: center; }
+      .buttons { justify-content: center; }
+      .project-title-row { justify-content: center; }
+      #pdf-container { height: 520px; }
     }
   </style>
-  <script>
-    // Auto-redirect if that's the preferred behavior
-    window.onload = function() {
-      // Uncomment the next line if you want automatic redirection instead of the viewer
-      // window.location.href = "resume.pdf";
-    }
-  </script>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <img src="preview-image.jpg" alt="Tim Myers" class="profile-image">
-      <div class="header-text">
-        <h1>Tim Myers</h1>
-        <div class="subtitle">Principal Software Engineer</div>
-        <div class="buttons">
-          <a href="resume.pdf" class="button" download>Download Resume (PDF)</a>
-          <a href="resume.pdf" class="button" target="_blank">Open in New Tab</a>
-        </div>
+
+  <!-- ---------- Hero ---------- -->
+  <section class="hero">
+    <img src="preview-image.jpg" alt="Tim Myers" class="profile-image">
+    <div class="hero-text">
+      <h1>Tim Myers</h1>
+      <div class="subtitle">Principal Platform &amp; Infrastructure Engineer</div>
+      <p class="bio">
+        I build high-throughput backend services and run cloud infrastructure at scale —
+        Kubernetes, Terraform, and CI/CD across a range of industries. Lately I'm
+        shipping my own product end-to-end with agentic AI coding tools doing the
+        heavy lifting.
+      </p>
+      <div class="buttons">
+        <a href="#resume" class="button">View Resume</a>
+        <a href="mailto:timmyers09@gmail.com" class="button secondary">Get in Touch</a>
       </div>
     </div>
+  </section>
 
-    <!-- Embed the PDF directly in the page -->
+  <!-- ---------- Featured project: Bendy ---------- -->
+  <section id="bendy">
+    <p class="eyebrow">Featured Project</p>
+    <div class="project">
+      <div class="project-info">
+        <div class="project-title-row">
+          <img src="assets/bendy-icon.png" alt="Bendy app icon" class="app-icon">
+          <h2>Bendy</h2>
+        </div>
+        <p class="tagline">The mobility app that makes stretching feel like a game.</p>
+        <p>
+          Bendy turns flexibility training into a habit you actually keep: short
+          video-guided routines with real-time voice coaching, wrapped in game mechanics
+          — XP, daily streaks, and weekly leaderboards — that reward showing up.
+        </p>
+        <ul class="feature-list">
+          <li>~10-minute video routines with real-time audio guidance</li>
+          <li>XP, levels, streaks, and weekly leaderboards to keep you consistent</li>
+          <li>Progressive difficulty from beginner to advanced — no equipment needed</li>
+          <li>On the App Store for iPhone &amp; iPad, with Android in beta</li>
+        </ul>
+        <p>
+          Designed, built, and operated solo — product, cross-platform app, backend,
+          video pipeline, and release automation.
+        </p>
+        <div class="tech">
+          <span class="chip">Flutter</span>
+          <span class="chip">Supabase</span>
+          <span class="chip">Postgres</span>
+          <span class="chip">Offline-first sync</span>
+          <span class="chip">Cloudflare Stream</span>
+          <span class="chip">Fastlane CI/CD</span>
+        </div>
+        <div class="buttons">
+          <a href="https://bendy.fit" class="button teal" target="_blank" rel="noopener">Visit bendy.fit</a>
+          <a href="https://apps.apple.com/us/app/bendy-learn-to-move/id6740637862" class="button secondary" target="_blank" rel="noopener">Download on the App Store</a>
+        </div>
+      </div>
+      <div class="screens">
+        <img src="assets/bendy-screen-1.png" alt="Bendy home screen showing daily streak and workout timeline">
+        <img src="assets/bendy-screen-2.png" alt="Bendy guided exercise screen with video and countdown timer">
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- Resume ---------- -->
+  <section id="resume">
+    <div class="resume-header">
+      <div>
+        <p class="eyebrow">Resume</p>
+        <h2>Experience &amp; Background</h2>
+      </div>
+      <div class="buttons">
+        <a href="resume.pdf" class="button" download>Download PDF</a>
+        <a href="resume.pdf" class="button secondary" target="_blank">Open in New Tab</a>
+      </div>
+    </div>
     <object id="pdf-container" data="resume.pdf" type="application/pdf">
-      <p>It appears your browser doesn't support embedded PDFs. 
+      <p>It appears your browser doesn't support embedded PDFs.
       <a href="resume.pdf">Click here to download the PDF</a> instead.</p>
     </object>
-  </div>
+  </section>
+
+  <footer>
+    Tim Myers · <a href="mailto:timmyers09@gmail.com">timmyers09@gmail.com</a> · <a href="https://bendy.fit" target="_blank" rel="noopener">bendy.fit</a>
+  </footer>
+
 </body>
 </html>
